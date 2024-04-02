@@ -15,7 +15,8 @@ int main(){
 		
 		printf("Digite o tamanho do vetor (max 10): ");
 		scanf("%i", &tam);
-		
+		fflush(stdin);
+
 	}while(tam<0 || tam>10);
 	
 	recebe_Vet(A,B,tam);
@@ -33,9 +34,11 @@ void recebe_Vet(float *num1, float *num2, int tam){
 		
 		printf("Digite o o  vetor A[%i]", i);
 		scanf("%f", &num1[i]);
-		
+		fflush(stdin);
+
 		printf("Digite o o  vetor B[%i]", i);
 		scanf("%f", &num2[i]);
+		fflush(stdin);
 	}
 	
 }
