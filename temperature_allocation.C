@@ -46,9 +46,9 @@ void maior_temp(float *ptr, int tam, float *pmaior, int *pdia){
 	printf("Insira as temperaturas abaixo:\n");
 	
         printf("Dia[%i]: ", tam+1);
-		scanf("%f", &ptr[tam]);
+		scanf("%f", &(ptr+tam));
 		
-		if(tam==0 || ptr[tam] > *pmaior){
+		if(tam==0 || *(ptr+tam) > *pmaior){
 			
 			*pmaior = ptr[tam];
 			*pdia = tam+1;
@@ -65,7 +65,7 @@ float calcula_media(float *ptr, int tam, float *media){
 	
 	for(i=0; i<tam; i++){
 		
-		*media += ptr[i];
+		*media += *(ptr+i);
 	}
 	
 	 *media /= tam;
@@ -81,8 +81,8 @@ void inf_media(float *ptr, int tam, float *media){
 	
 	for (i = 0; i < tam; i++) {
         
-		if (ptr[i] < *media) {
-            printf("\n\nDia %d: %.2f\n", i + 1, ptr[i]);
+		if ((ptr+i) < *media) {
+            printf("\n\nDia %d: %.2f\n", i + 1, *(ptr+i));
         }
     }
 }
