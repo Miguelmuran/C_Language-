@@ -40,7 +40,7 @@ void recebe_valor(float *ptr, int *tam){
 	
 	do{
 		printf("\n\nvetor[%i]: ",*tam);
-		scanf("%f", &ptr[*tam]);	
+		scanf("%f", (ptr + *tam));	
 		fflush(stdin);
 		
 		printf("\nDeseja continuar <S/N>: ");
@@ -58,7 +58,7 @@ void imprime_inverso(float *ptr, int tam){
 	int i;
 	
 	for(i=tam; i>=0; i--){
-		printf("endereço: %i - Valor: %.2f\n\n", (void*)(ptr+i), *(ptr+i));
+		printf("endereco: %i - Valor: %.2f\n\n", (ptr+i), *(ptr+i));
 	}
 }
 
@@ -69,7 +69,7 @@ float calcula_media(float *ptr, int tam){
 	
 	for(i=0; i<tam; i++){
 		
-		media += ptr[i];
+		media += *(ptr+i);
 	}
 	media = media/tam;
 	
