@@ -43,7 +43,7 @@ void recebe_Temp(float *temp, int tam){
 	for(i=0; i<tam; i++){
 		
 		printf("Dia[%i]: ", i+1);
-		scanf("%f", &temp[i]);
+		scanf("%f", (temp+i));
 		fflush(stdin);
 	}
 }
@@ -58,7 +58,7 @@ void maior_Temp(float *temp, int tam){
 	
 	for(i=1; i<tam; i++){
 		
-		if(maior < temp[i]){
+		if(maior < *(temp+i)){
 			
 			maior = temp[i];
 			dia = i+1;		
@@ -75,7 +75,7 @@ float media_Temp(float *temp, int tam){
 	
 	for(i=0; i<tam; i++){
 		
-		media += temp[i];
+		media += *(temp+i);
 	}
 	
 	media = media/tam;
@@ -91,7 +91,7 @@ int inf_Temp(float *temp, int tam, float media, int *posicao){
 	
 	for(i=0; i<tam; i++){
 		
-		if(temp[i] < media){
+		if(*(temp+i) < media){
 			
 			posicao[j] = i;
 			j++;
