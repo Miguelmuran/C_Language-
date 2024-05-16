@@ -21,7 +21,7 @@ int main(){
 	printf("<SEJA BEM-VINDO>\n");
 	
 	do{
-		printf("\n\nDigite a opcao que deseja realizar:\n");
+		printf("\nDigite a opcao que deseja realizar:\n\n");
 		printf("[1] Cadastro\n");
 		printf("[2] Controle de Notas\n");
 		printf("[3] Fechar programa\n");
@@ -50,16 +50,16 @@ void cadastro_Aluno(struct aluno alunos[], int total_aluno){
 	
 	if(total_aluno<10){
 		
-		printf("Digite seu nome: ");
+		printf("\nDigite seu nome: ");
 		scanf("%s", &(alunos[total_aluno].nome));
 		fflush(stdin);
-		printf("Digite seu RA estudantil: ");
+		printf("\nDigite seu RA estudantil: ");
 		scanf("%s", &(alunos[total_aluno].RA));
 		fflush(stdin);
-		printf("Digite a primeira nota: ");
+		printf("\nDigite a primeira nota: ");
 		scanf("%f", &(alunos[total_aluno].nota[0]));
 		fflush(stdin);
-		printf("Digte a segunda nota: ");
+		printf("\nDigte a segunda nota: ");
 		scanf("%f", &(alunos[total_aluno].nota[1]));
 		fflush(stdin);
 	}
@@ -71,35 +71,30 @@ void controle_Aluno(struct aluno alunos[], int total_aluno){
 	char confere[7];
 	
 	printf("<Controle de Notas>\n");
-	printf("Digite seu RA para entrar: ");
+	printf("\nDigite seu RA para entrar: ");
 	scanf("%s", &confere);
 	
 	for(i=0; i<total_aluno; i++){
 		
 		if(strcmp(alunos[i].RA,confere)==0){
 
-			printf("Nome: %s\n", alunos[i].nome);
-			printf("Nota 1: %.2f\n", alunos[i].nota[0]);
-			printf("Nota 2: %.2f\n", alunos[i].nota[1]);
+			printf("\nNome: %s\n", alunos[i].nome);
+			printf("\nNota 1: %.2f\n", alunos[i].nota[0]);
+			printf("\nNota 2: %.2f\n", alunos[i].nota[1]);
 			
-			printf("<Calculo Das medias aritimetricas>\n");
+			printf("\n<Calculo Das medias aritimetricas>\n");
 			
 			alunos[i].media = (alunos[i].nota[0]+alunos[i].nota[1])/2;
 			
-			printf("Media do %s eh: %.2f\n\n", alunos[i].nome, alunos[i].media);
+			printf("\nMedia do %s eh: %.2f\n\n", alunos[i].nome, alunos[i].media);
 
       if(alunos[i].media > 6){
-				printf("Aluno Aprovado!\n\n");
+				printf("\nAluno Aprovado!\n\n");
 			}
 			
 			else{
-				printf("Aluno Reprovado!\n\n");
+				printf("\nAluno Reprovado!\n\n");
 			}
-		}
-		
-    else{
-			
-      printf("ALUNO NAO ENCONTRADO!\n\n");
 		}
 	}
 } 
