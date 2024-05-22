@@ -107,7 +107,7 @@ void cadastra_hospede(hospede *pth, quarto *ptq){
 	char categ;
 	
 	do{
-		printf("QUANTOS ACOMPANHANTES <MAX 4>: ");
+		printf("QUANTAS PESSOAS PARA SE HOSPEDAR <MAX 4>: ");
 		scanf("%i", &qpessoas);
 		fflush(stdin);
 	}while(qpessoas<1 || qpessoas>4);
@@ -160,6 +160,7 @@ int busca_quarto (quarto *ptq, char categ){
 void check_out(hospede *pth, int tam, quarto *ptq){
 	
 	int num_quarto, i;
+	float conta;
 	
 	printf("\nDIGITE QUAL SEU QUARTO\n");
 	printf("QUARTO: ");
@@ -174,10 +175,14 @@ void check_out(hospede *pth, int tam, quarto *ptq){
 			printf("\nNOME: %s\n", (pth+i)->nome);
 			
 			if((pth+i)->acompanhante==0){
-				printf("\nTOTAL A PAGAR: %.2f\n", (pth+i)->dias*85);
+				
+				conta=(pth+i)->dias*85;
+				printf("\nTOTAL A PAGAR: %.2f\n", conta);
 			}
 			else if((pth+i)->acompanhante>0){
-				printf("\nTOTAL A PAGAR: %.2f\n", (pth+i)->dias*(((pth+i)->acompanhante)+1)*45);
+				
+				conta=((pth+i)->dias*((pth+i)->acompanhante+1)*45);
+				printf("\nTOTAL A PAGAR: %.2f\n", conta);
 			}
 			system("pause");
 			(pth+i)->quarto=-1;
